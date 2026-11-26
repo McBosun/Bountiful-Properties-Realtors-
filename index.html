@@ -1,95 +1,132 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Bountiful Properties · Realtor Network</title>
+<meta name="theme-color" content="#0369a1">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="BPR"><meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>BPR · Bountiful Properties Realtors</title>
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="logo.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-:root{--bg:#f2f9ff;--ink:#0b2540;--mut:#58708a;--card:#ffffff;--line:#d3e7f7;--gold:#0284c7;--grn:#0369a1;--on:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#071a2b;--ink:#eaf6ff;--mut:#8fb2cc;--card:#0d2740;--line:#1c3f5e;--gold:#38bdf8;--grn:#38bdf8;--on:#04121f}}
-:root[data-theme="dark"]{--bg:#071a2b;--ink:#eaf6ff;--mut:#8fb2cc;--card:#0d2740;--line:#1c3f5e;--gold:#38bdf8;--grn:#38bdf8;--on:#04121f}
-*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
-h1,h2,h3,.serif{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-.01em}
-.wrap{max-width:880px;margin:0 auto;padding:16px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:6px 0 14px}
-.logo{display:flex;gap:10px;align-items:center;font-family:Georgia,serif;font-weight:700}
-.logo i{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--gold),var(--grn));display:grid;place-items:center;color:#fff;font-style:normal}
-.hero{background:linear-gradient(160deg,#38bdf8,#0369a1);color:#fff;border-radius:22px;padding:28px 22px;position:relative;overflow:hidden}
-.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:30px solid rgba(255,255,255,.22)}
-.hero h1{font-size:clamp(28px,7vw,44px);line-height:1.1;margin:0 0 10px}
-.hero .btn{background:#fff;color:#0369a1}
-.hero p{margin:0 0 18px;opacity:.9;max-width:520px}
-.btn{display:inline-block;border:0;cursor:pointer;background:var(--grn);color:var(--on);font:600 16px system-ui,sans-serif;padding:12px 20px;border-radius:12px}
-.btn.alt{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
-.btn.sm{padding:8px 12px;font-size:14px}
-.split{display:flex;height:46px;border-radius:12px;overflow:hidden;margin:16px 0 8px;font-weight:700;font-size:14px}
-.split div{display:grid;place-items:center;color:#fff}
-.s6{flex:6;background:#0369a1}.s1{flex:1;background:#38bdf8}.s3{flex:3;background:#1e3a5f}
-.key{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;opacity:.9}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
-.ph{height:110px;border-radius:12px;margin-bottom:10px;display:flex;align-items:flex-end;padding:10px;color:#fff;font-weight:600;font-size:13px}
-.tag{font-size:12px;padding:3px 9px;border-radius:99px;border:1px solid var(--line);color:var(--mut)}
-label{display:block;font-size:14px;color:var(--mut);margin:12px 0 4px}
-input,select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
-.tabs{display:flex;gap:6px;overflow-x:auto;margin:14px 0}
-.tabs button{white-space:nowrap;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:9px 14px;border-radius:99px;cursor:pointer;font:inherit}
-.tabs button.on{background:var(--grn);color:var(--on);border-color:var(--grn)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px}
-.stat b{display:block;font:700 20px Georgia,serif;color:var(--gold)}.stat span{font-size:12px;color:var(--mut)}
-.link{word-break:break-all;background:var(--bg);border:1px dashed var(--gold);padding:10px;border-radius:10px;font-size:14px}
-.row{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
-.mut{color:var(--mut);font-size:14px}
-#agreement{background:#fff;color:#111;border:1px solid #ccc;padding:28px;font-family:Georgia,serif;border-radius:6px;line-height:1.55}
-#agreement h2{text-align:center;margin:0 0 4px}#agreement table{width:100%;border-collapse:collapse;margin:10px 0}
-#agreement td{border:1px solid #999;padding:6px 10px}
-.ib{background:var(--card);border:1px solid var(--line);color:var(--ink);width:40px;height:40px;border-radius:10px;font-size:20px;cursor:pointer}
-.av{width:40px;height:40px;border-radius:50%;border:0;background:var(--grn);color:var(--on);font:700 16px Georgia,serif;cursor:pointer}.av.big{width:56px;height:56px;font-size:22px;cursor:default;margin-bottom:8px;display:grid;place-items:center}
-.dd{position:relative}.ddm{position:absolute;right:0;top:48px;background:var(--card);border:1px solid var(--line);border-radius:12px;min-width:180px;box-shadow:0 8px 24px rgba(3,105,161,.2);z-index:30;overflow:hidden}
-.ddm a,.sb a{display:block;padding:12px 16px;cursor:pointer}
+:root{--bg:#f3f8fd;--ink:#0b2540;--mut:#5b7189;--card:#fff;--line:#dbeaf6;--pri:#0284c7;--pri2:#0369a1;--soft:#e8f4fd;--glass:rgba(255,255,255,.86);--ok:#0a8f55;--warn:#b7791f;--bad:#c2362b;--sh:0 1px 2px rgba(3,60,100,.06),0 8px 24px rgba(3,60,100,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#071a2b;--ink:#eaf6ff;--mut:#8fb2cc;--card:#0d2740;--line:#1c3f5e;--pri:#38bdf8;--pri2:#0ea5e9;--soft:#0f3050;--glass:rgba(7,26,43,.86);--ok:#4ade80;--warn:#fbbf24;--bad:#f87171;--sh:0 8px 24px rgba(0,0,0,.35)}}
+:root[data-theme="dark"]{--bg:#071a2b;--ink:#eaf6ff;--mut:#8fb2cc;--card:#0d2740;--line:#1c3f5e;--pri:#38bdf8;--pri2:#0ea5e9;--soft:#0f3050;--glass:rgba(7,26,43,.86);--ok:#4ade80;--warn:#fbbf24;--bad:#f87171;--sh:0 8px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-padding-top:70px}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+h1,h2,h3{margin:0;letter-spacing:-.02em}h3{font-size:17px;margin-bottom:8px}
+.top{position:sticky;top:0;z-index:20;background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.tb{max-width:1000px;margin:0 auto;height:58px;padding:0 14px;display:flex;align-items:center;gap:10px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.03em;cursor:pointer;line-height:1.1}
+.brand small{display:block;font-weight:600;font-size:9.5px;letter-spacing:.09em;color:var(--mut);text-transform:uppercase;margin-top:2px}
+.sp{flex:1}
+main{max-width:1000px;margin:0 auto;padding:16px 14px 100px}
+.ph{margin:4px 0 14px}.ph h2{font-size:24px;font-weight:800}
+.ts{font-size:13px}.mut{color:var(--mut)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--sh);margin:0 0 14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;font:600 15px inherit;font-family:inherit;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px rgba(2,132,199,.28)}
+.btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.btn.bad{background:var(--card);color:var(--bad);border:1px solid var(--line);box-shadow:none}
+.btn.sm{padding:8px 12px;font-size:13px;border-radius:10px}.btn.w{width:100%}
+.ib{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+input,select{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;outline:none}
+input:focus,select:focus{border-color:var(--pri);box-shadow:0 0 0 3px rgba(14,165,233,.18)}
+label{display:block;font-size:13px;font-weight:600;color:var(--mut);margin:12px 0 5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}
+@media(min-width:640px){.kpis{grid-template-columns:repeat(4,1fr)}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--sh)}
+.kpi .ic{width:34px;height:34px;border-radius:10px;background:var(--soft);color:var(--pri);display:grid;place-items:center;margin-bottom:8px}
+.kpi b{display:block;font-size:22px;letter-spacing:-.02em}.kpi span{font-size:12px;color:var(--mut)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}.row:last-child{border:0}
+.chip{display:inline-block;font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px;background:var(--soft);color:var(--pri)}
+.chip.ok{background:rgba(10,143,85,.12);color:var(--ok)}.chip.wr{background:rgba(183,121,31,.14);color:var(--warn)}.chip.bd{background:rgba(194,54,43,.12);color:var(--bad)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 12px;margin-top:10px}
+.chips button{white-space:nowrap;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 14px;border-radius:99px;cursor:pointer;font:600 13px inherit;font-family:inherit}.chips button.on{background:var(--pri2);color:#fff;border-color:var(--pri2)}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column}
+.pc .im{height:130px;position:relative;display:flex;align-items:flex-end;padding:12px;color:#fff}
+.pc .im:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 10%,rgba(255,255,255,.35),transparent 55%)}
+.pc .im .chip{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.93);color:#0369a1;z-index:1}
+.pc .loc{position:relative;z-index:1;display:flex;gap:4px;align-items:center;font-weight:600;font-size:13px}
+.pc .bd{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.price{font-size:20px;font-weight:800;letter-spacing:-.02em}
+.earn{font-size:12px;font-weight:600;color:var(--ok);background:rgba(10,143,85,.1);padding:4px 10px;border-radius:99px;align-self:flex-start}
+.hero{background:linear-gradient(150deg,#38bdf8 0%,#0284c7 55%,#075985 100%);color:#fff;border-radius:26px;padding:30px 22px;position:relative;overflow:hidden;margin-bottom:16px}
+.hero:before{content:"";position:absolute;right:-70px;top:-70px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.12)}
+.hero:after{content:"";position:absolute;right:30px;bottom:-90px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.1)}
+.hero>*{position:relative;z-index:1}
+.hero h1{font-size:clamp(28px,7vw,46px);line-height:1.08;margin:16px 0 10px;font-weight:800}
+.hero p{max-width:520px;opacity:.95;margin:0 0 20px}
+.hero .lw{display:inline-block;background:rgba(255,255,255,.18);padding:8px;border-radius:22px;line-height:0}
+.hero .btn{background:#fff;color:#0369a1;box-shadow:0 6px 16px rgba(0,0,0,.15)}.hero .btn.o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.85);box-shadow:none}
+.ha{display:flex;gap:10px;flex-wrap:wrap}
+.split{display:flex;height:48px;border-radius:14px;overflow:hidden;font-weight:700;font-size:14px;color:#fff;margin:12px 0 10px}
+.split div{display:grid;place-items:center;min-width:0}.s6{flex:6;background:#0369a1}.s1{flex:1;background:#38bdf8}.s3{flex:3;background:#1e3a5f}
+.link{word-break:break-all;background:var(--soft);border:1px dashed var(--pri);padding:12px;border-radius:12px;font-size:14px}
+.step{display:flex;gap:12px;align-items:flex-start}.step .ic{width:42px;height:42px;border-radius:12px;background:var(--soft);color:var(--pri);display:grid;place-items:center;flex:none}
+.av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#38bdf8,#0369a1);color:#fff;display:grid;place-items:center;font-weight:800;border:0;cursor:pointer;flex:none;font-family:inherit;font-size:16px}
+.av.lg{width:68px;height:68px;font-size:28px;cursor:default}
+.sb{position:fixed;top:0;bottom:0;left:0;width:280px;max-width:86vw;background:var(--card);border-right:1px solid var(--line);z-index:50;transform:translateX(-102%);transition:transform .25s;padding:calc(env(safe-area-inset-top,0px) + 16px) 12px 20px;overflow-y:auto}.sb.open{transform:none}
+.sb .u{display:flex;gap:12px;align-items:center;padding:6px 8px 14px;margin-bottom:4px;border-bottom:1px solid var(--line)}
+.sb h4{margin:16px 10px 6px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.sb a{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;cursor:pointer;font-weight:600}
+.sb a:hover{background:var(--soft)}.sb a.on{background:var(--soft);color:var(--pri)}
 .ov{position:fixed;inset:0;background:rgba(3,40,70,.45);opacity:0;pointer-events:none;transition:.2s;z-index:40}.ov.open{opacity:1;pointer-events:auto}
-.sb{position:fixed;top:0;bottom:0;left:0;width:280px;max-width:84vw;background:var(--card);z-index:50;transform:translateX(-100%);transition:.25s;padding:calc(env(safe-area-inset-top,0px) + 20px) 8px 20px;overflow-y:auto}.sb.open{transform:none}
-.sb a.on{background:var(--bg);color:var(--grn);font-weight:600;border-radius:10px}
-.sbh{padding:0 12px 14px;margin-bottom:8px;border-bottom:1px solid var(--line);display:flex;flex-direction:column}
-@media print{.nopr,#app>*:not(#print-root){display:none!important}#print-root{display:block!important}#agreement{border:0;padding:0}.wrap{padding:0}}
-</style></head><body><div class="wrap" id="app"></div>
+.bn{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;padding:6px 6px calc(env(safe-area-inset-bottom,0px) + 6px)}
+.bn a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:600;color:var(--mut);padding:6px 0;cursor:pointer}.bn a.on{color:var(--pri)}
+.dd{position:relative}.ddm{position:absolute;right:0;top:48px;min-width:210px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh);overflow:hidden;z-index:60}
+.ddm a{display:flex;gap:10px;align-items:center;padding:12px 14px;cursor:pointer;font-weight:600}.ddm a:hover{background:var(--soft)}
+#toast{position:fixed;left:50%;bottom:92px;transform:translateX(-50%) translateY(20px);background:#0b2540;color:#fff;padding:11px 18px;border-radius:12px;opacity:0;pointer-events:none;transition:.25s;z-index:99;font-weight:600;max-width:90vw;text-align:center}#toast.show{opacity:1;transform:translateX(-50%)}
+#app.in{padding-left:0}
+@media(min-width:960px){#app.in{padding-left:280px}.sb{transform:none}.ov,.bn,.hb{display:none!important}#toast{bottom:30px}main{padding-bottom:40px}}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="bprg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#0369a1"/></linearGradient></defs></svg>
+<div id="app"></div><div id="toast"></div>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
-// ===== Firebase web config =====
 const FB={apiKey:'AIzaSyC14mGPKPreUk1GeuJ8QPzit2qz8_uKOIk',authDomain:'bountiful-realtors.firebaseapp.com',projectId:'bountiful-realtors',appId:'1:853837062187:web:95f51a16304eb1f0c14a6e'};
-// ================================================================================================
-const SETUP=FB.apiKey.startsWith('PASTE');
-if(!SETUP)firebase.initializeApp(FB);
-const au=SETUP?null:firebase.auth(),db=SETUP?null:firebase.firestore();
+firebase.initializeApp(FB);
+const au=firebase.auth(),db=firebase.firestore();
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money=n=>'$'+Math.round(+n||0).toLocaleString('en-US');
 const A=s=>s.docs.map(d=>({id:d.id,...d.data()}));
+const sum=(a,f)=>a.reduce((s,x)=>s+(+f(x)||0),0);
+const r2=n=>Math.round(n*100)/100;
+const fd=t=>new Date(t).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+const I={home:'M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z',building:'M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16M15 9h4a1 1 0 0 1 1 1v11M8 8h3M8 12h3M8 16h3M3 21h18',wallet:'M3 7a2 2 0 0 1 2-2h13v4M3 7v11a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H5a2 2 0 0 1-2-1zM16 14h2',users:'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8',file:'M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h6',user:'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z',gear:'M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6',shield:'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z',logout:'M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9',plus:'M12 5v14M5 12h14',pin:'M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12zM12 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z',check:'M20 6 9 17l-5-5',clock:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 2',chart:'M3 3v18h18M7 15l4-4 3 3 5-6',download:'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3',menu:'M4 6h16M4 12h16M4 18h16',copy:'M9 9h10a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2zM5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1',dollar:'M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6',globe:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18',bolt:'M13 2 3 14h9l-1 8 10-12h-9z',phone:'M7 2h10a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM11 18h2'};
+const ic=n=>`<svg class="ico" viewBox="0 0 24 24"><path d="${I[n]}"/></svg>`;
+const logo=s=>`<svg width="${s}" height="${s}" viewBox="0 0 128 128" aria-label="BPR"><rect width="128" height="128" rx="30" fill="url(#bprg)"/><path d="M22 66 64 31l42 35" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M64 60 44 92M64 60l20 32M44 92h40" stroke="#fff" stroke-width="4.5" stroke-linecap="round" opacity=".9"/><circle cx="64" cy="60" r="8" fill="#fff"/><circle cx="44" cy="92" r="8" fill="#fff"/><circle cx="84" cy="92" r="8" fill="#bae6fd"/></svg>`;
 const G=['#0284c7,#7dd3fc','#38bdf8,#0369a1','#0ea5e9,#1e3a5f','#7dd3fc,#0284c7','#0369a1,#38bdf8','#1e3a5f,#0ea5e9'];
-let P=null,L=[],S=[],N=[],view='home',tab='list',mode='up',busy=false;
+let P=null,adm=false,L=[],S=[],N=[],AD={sales:[],listings:[],people:[]},view='home',tab='dash',mode='up',busy=false,q='',kf='All',cf='All',dip=null;
 const ref=(new URLSearchParams(location.search).get('ref')||'').toUpperCase();
+const st=s=>`<span class="chip ${{pending:'wr',paid:'ok',rejected:'bd'}[s]||''}">${s}</span>`;
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),3400)}
 const getT=()=>{try{return localStorage.getItem('bp_theme')||'auto'}catch(e){return'auto'}};
 function applyTheme(t){const r=document.documentElement;t==='auto'?r.removeAttribute('data-theme'):r.setAttribute('data-theme',t)}
 function setT(v){try{localStorage.setItem('bp_theme',v)}catch(e){}applyTheme(v)}
-const dt=()=>new Date(P.created).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-const note=()=>SETUP?'<div class="card" style="border-color:#b3261e"><b>Setup needed.</b> Paste your Firebase config at the top of this file (see README).</div>':'';
+const mine=()=>S.filter(x=>x.realtor_id===P.id||x.upline_id===P.id).map(x=>({...x,own:x.realtor_id===P.id,amt:x.realtor_id===P.id?x.realtor_amt:x.upline_amt}));
+const pendN=()=>adm?AD.sales.filter(x=>x.status==='pending').length:0;
+const lnk=()=>location.origin+location.pathname.replace(/index\.html$/,'')+'?ref='+P.referral_code;
+/* ---------- data ---------- */
 async function loadL(){try{L=A(await db.collection('listings').where('status','==','active').get()).sort((a,b)=>a.created-b.created)}catch(e){L=[]}}
-async function load(){
- const u=au.currentUser;if(!u)return;
+async function loadAD(){try{const [a,b,c]=await Promise.all([db.collection('sales').get(),db.collection('listings').get(),db.collection('profiles').get()]);
+ AD={sales:A(a).sort((x,y)=>y.created-x.created),listings:A(b).sort((x,y)=>x.created-y.created),people:A(c).sort((x,y)=>y.created-x.created)}}catch(e){toast(e.message)}}
+async function load(){const u=au.currentUser;if(!u)return;
  const p=await db.collection('profiles').doc(u.uid).get();P=p.exists?{id:p.id,...p.data()}:null;
+ try{adm=(await db.collection('admins').doc(u.uid).get()).exists}catch(e){adm=false}
  await loadL();if(!P)return;
  const [a,b,c]=await Promise.all([db.collection('sales').where('realtor_id','==',u.uid).get(),db.collection('sales').where('upline_id','==',u.uid).get(),db.collection('profiles').where('upline_id','==',u.uid).get()]);
- const m={};[...A(a),...A(b)].forEach(x=>m[x.id]=x);S=Object.values(m).sort((x,y)=>y.created-x.created);N=A(c)}
-function msg(m,ok){const x=$('#msg');if(x){x.textContent=m;x.style.color=ok?'#0a7a3d':'#b3261e'}}
-async function auth(kind){
- if(SETUP)return msg('Add your Firebase config first (see README).');
- const e=$('#e').value.trim(),pw=$('#pw').value;busy=true;
+ const m={};[...A(a),...A(b)].forEach(x=>m[x.id]=x);S=Object.values(m).sort((x,y)=>y.created-x.created);N=A(c);
+ if(adm)await loadAD()}
+/* ---------- auth ---------- */
+function msg(m,ok){const x=$('#msg');if(x){x.textContent=m;x.style.color=ok?'var(--ok)':'var(--bad)'}}
+async function auth(kind){const e=$('#e').value.trim(),pw=$('#pw').value;busy=true;
  try{
-  if(kind==='up'){
-   const n=$('#n').value.trim(),co=$('#co').value.trim(),rc=$('#rc').value.trim().toUpperCase();
+  if(kind==='up'){const n=$('#n').value.trim(),co=$('#co').value.trim(),rc=$('#rc').value.trim().toUpperCase();
    if(!n||!e||!co||pw.length<6){busy=false;return msg('Fill every field. Password needs at least 6 characters.')}
    let up=null;if(rc){const c=await db.collection('codes').doc(rc).get();if(!c.exists){busy=false;return msg('That referral code was not found.')}up=c.data()}
    const uid=(await au.createUserWithEmailAndPassword(e,pw)).user.uid;
@@ -98,44 +135,99 @@ async function auth(kind){
    await db.collection('profiles').doc(uid).set({full_name:n,email:e,country:co,referral_code:code,agreement_no:'BP-'+Date.now().toString(36).toUpperCase()+Math.floor(Math.random()*1296).toString(36).toUpperCase().padStart(2,'0'),upline_id:up?up.uid:null,upline_name:up?up.name:null,created:Date.now()});
   }else{if(!e||!pw){busy=false;return msg('Enter your email and password.')}await au.signInWithEmailAndPassword(e,pw)}
   await load();busy=false;if(!P)return msg('Signed in, but no profile was found for this account.');
-  view='dash';tab=kind==='up'?'agr':'list';render();scrollTo(0,0)
+  view='app';tab=kind==='up'?'agr':'dash';render();scrollTo(0,0)
  }catch(x){busy=false;msg(x.message)}}
-async function out(){await au.signOut();P=null;S=[];N=[];view='home';render()}
+async function reset(){const e=$('#e').value.trim();if(!e)return msg('Enter your email above first.');try{await au.sendPasswordResetEmail(e);msg('Password reset email sent. Check your inbox.',1)}catch(x){msg(x.message)}}
+async function out(){await au.signOut();P=null;adm=false;S=[];N=[];AD={sales:[],listings:[],people:[]};view='home';tab='dash';render();scrollTo(0,0)}
 function go(v,m){view=v;if(m)mode=m;render();scrollTo(0,0)}
-function nv(t){tab=t;view='dash';render();scrollTo(0,0)}
+function nv(t){tab=t;view='app';render();scrollTo(0,0)}
 function drawer(o){$('#sb').classList.toggle('open',!!o);$('#ov').classList.toggle('open',!!o)}
 function dd(){const m=$('#ddm');m.hidden=!m.hidden}
-function nav(){return `<nav class="nopr">${P?'<button class="ib" onclick="drawer(1)" aria-label="Menu">☰</button>':''}<div class="logo"><i>B</i>Bountiful Properties</div>${P?`<div class="dd"><button class="av" onclick="dd()" aria-label="Account">${esc(P.full_name[0].toUpperCase())}</button><div id="ddm" class="ddm" hidden><a onclick="nv('prof')">👤 My profile</a><a onclick="nv('set')">⚙️ Settings</a><a onclick="out()">🚪 Sign out</a></div></div>`:'<button class="btn alt sm" onclick="go(\'join\',\'in\')">Log in</button>'}</nav>${P?side():''}`}
-function side(){const m=[['list','🏠','Listings'],['earn','💰','Earnings'],['net','👥','My network'],['agr','📄','Agreement'],['prof','👤','Profile'],['set','⚙️','Settings']];
- return `<div id="ov" class="ov nopr" onclick="drawer(0)"></div><aside id="sb" class="sb nopr"><div class="sbh"><div class="av big">${esc(P.full_name[0].toUpperCase())}</div><b>${esc(P.full_name)}</b><span class="mut">${esc(P.agreement_no)}</span></div>${m.map(x=>`<a class="${tab===x[0]?'on':''}" onclick="nv('${x[0]}')">${x[1]} ${x[2]}</a>`).join('')}<a onclick="out()">🚪 Sign out</a></aside>`}
-function card(p,i,btn){const g=G[i%6].split(',');return `<div class="card" style="margin:0"><div class="ph" style="background:linear-gradient(135deg,${g[0]},${g[1]})">${esc(p.location)}</div><b class="serif">${esc(p.title)}</b><div class="mut">${esc(p.description)}</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px"><span class="tag">${esc(p.kind)}</span><b>${money(p.price)}</b></div><div class="mut" style="margin:6px 0">You earn ${money(p.price*.06)}</div>${btn?`<button class="btn sm" onclick="closing('${p.id}')">Submit closing</button>`:''}</div>`}
-function grid(btn){return L.length?`<div class="grid">${L.map((p,i)=>card(p,i,btn)).join('')}</div>`:'<p class="mut">No listings yet. Bountiful will post properties here.</p>'}
-function calc(){const p=+$('#cp').value||0;$('#cr').innerHTML=`<div class="row"><span>You (6%)</span><b>${money(p*.06)}</b></div><div class="row"><span>Your upline (1%)</span><b>${money(p*.01)}</b></div><div class="row"><span>Agency (3%)</span><b>${money(p*.03)}</b></div><div class="row"><span>You, if your invitee sells (1%)</span><b>${money(p*.01)}</b></div>`}
+function cp(){navigator.clipboard&&navigator.clipboard.writeText(lnk()).then(()=>toast('Referral link copied'))}
+/* ---------- shared pieces ---------- */
+function pcard(p,btn){const g=G[Math.max(0,L.indexOf(p))%6].split(',');
+ return `<div class="pc"><div class="im" style="background:linear-gradient(135deg,${g[0]},${g[1]})"><span class="chip">${esc(p.kind)}</span><span class="loc">${ic('pin')}${esc(p.location)}</span></div><div class="bd"><b style="font-size:16px">${esc(p.title)}</b><div class="mut ts">${esc(p.description)}</div><div class="price">${money(p.price)}</div><span class="earn">Earn ${money(p.price*.06)} (6%)</span>${btn?`<button class="btn sm w" style="margin-top:8px" onclick="closing('${p.id}')">Submit closing</button>`:''}</div></div>`}
+function acct(){return `${adm?'<span class="chip" style="margin-right:6px">Admin</span>':''}<div class="dd"><button class="av" onclick="dd()" aria-label="Account">${esc(P.full_name[0].toUpperCase())}</button><div id="ddm" class="ddm" hidden><div style="padding:12px 14px;border-bottom:1px solid var(--line)"><b>${esc(P.full_name)}</b><div class="mut ts">${adm?'Administrator':'Realtor'}</div></div><a onclick="nv('prof')">${ic('user')}My profile</a>${adm?`<a onclick="nv('a-ov')">${ic('shield')}Admin console</a>`:''}<a onclick="nv('set')">${ic('gear')}Settings</a><a onclick="out()">${ic('logout')}Sign out</a></div></div>`}
+function top(){return `<div class="top"><div class="tb">${P?`<button class="ib hb" onclick="drawer(1)" aria-label="Menu">${ic('menu')}</button>`:''}<div class="brand" onclick="${P?"nv('dash')":"go('home')"}">${logo(34)}<div>BPR<small>Bountiful Properties Realtors</small></div></div><div class="sp"></div>${P?acct():`<button class="btn ghost sm" onclick="go('join','in')">Log in</button><button class="btn sm" onclick="go('join','up')">Join</button>`}</div></div>`}
+const SPLIT='<div class="split"><div class="s6">6% You</div><div class="s1">1%</div><div class="s3">3% Agency</div></div>';
+function calc(){const p=+$('#cp').value||0;$('#cr').innerHTML=`<div class="row"><span>You (6%)</span><b>${money(p*.06)}</b></div><div class="row"><span>Your upline (1%)</span><b>${money(p*.01)}</b></div><div class="row"><span>Bountiful Properties (3%)</span><b>${money(p*.03)}</b></div><div class="row"><span>You, if someone you invited sells (1%)</span><b>${money(p*.01)}</b></div>`}
+/* ---------- public pages ---------- */
+function home(){return top()+`<main><div class="hero"><span class="lw">${logo(52)}</span><h1>Sell premium properties.<br>Earn 6% at closing.</h1><p>BPR connects realtors worldwide to Bountiful Properties’ listings, ongoing builds and land. Earn commission on every sale and build a team that pays you back.</p><div class="ha"><button class="btn" onclick="go('join','up')">Become a realtor</button><button class="btn o" onclick="go('join','in')">Log in</button></div></div>
+<div class="grid" style="margin-bottom:14px">${[['globe','Join from anywhere','Sign up free and get your agreement and referral link instantly.'],['building','Sell Bountiful properties','Homes, ongoing builds and land, all with fixed commission.'],['dollar','Earn at closing','6% on your sales, plus 1% whenever someone you invite sells.']].map(x=>`<div class="card step" style="margin:0"><div class="ic">${ic(x[0])}</div><div><b>${x[1]}</b><div class="mut ts">${x[2]}</div></div></div>`).join('')}</div>
+<div class="card"><h3>How every closing is shared</h3><div class="mut ts">A 10% commission pool is paid out on each sale.</div>${SPLIT}<div class="mut ts">6% to the realtor who sells · 1% to their upline · 3% to Bountiful Properties</div></div>
+<div class="card"><h3>Commission calculator</h3><label>Sale price (USD)</label><input id="cp" type="number" value="250000" oninput="calc()"><div id="cr" style="margin-top:6px"></div></div>
+<h3 style="margin:18px 0 10px">Featured properties</h3>${L.length?`<div class="grid">${L.slice(0,6).map(p=>pcard(p,0)).join('')}</div>`:'<div class="card mut">Properties will appear here once they are posted.</div>'}
+<p class="mut ts" style="text-align:center;margin-top:26px">© BPR · Bountiful Properties Realtors</p></main>`}
+function joinV(){const up=mode==='up';return top()+`<main><div class="card" style="max-width:460px;margin:10px auto"><div style="text-align:center;margin-bottom:6px">${logo(56)}</div><h2 style="text-align:center">${up?'Join BPR':'Welcome back'}</h2><div class="mut ts" style="text-align:center">${up?'Create your realtor account in a minute.':'Log in to your realtor account.'}</div>${up?`${ref?`<p class="ts" style="text-align:center">Invited with code <b>${esc(ref)}</b></p>`:''}<label>Full name</label><input id="n" autocomplete="name"><label>Country</label><input id="co"><label>Referral code (optional)</label><input id="rc" value="${esc(ref)}">`:''}<label>Email</label><input id="e" type="email" autocomplete="email"><label>Password</label><input id="pw" type="password" autocomplete="${up?'new-password':'current-password'}"><p id="msg" class="ts" style="min-height:20px;margin:8px 0"></p><button class="btn w" onclick="auth('${mode}')">${up?'Create account':'Log in'}</button>${up?'':`<p class="ts" style="text-align:center;margin:12px 0 0"><a onclick="reset()" style="color:var(--pri);cursor:pointer;font-weight:600">Forgot password?</a></p>`}<p class="ts mut" style="text-align:center;margin:14px 0 0">${up?'Already have an account?':'New to BPR?'} <a onclick="go('join','${up?'in':'up'}')" style="color:var(--pri);cursor:pointer;font-weight:600">${up?'Log in':'Create account'}</a></p></div></main>`}
+/* ---------- app shell ---------- */
+function shell(){
+ if(!adm&&tab.startsWith('a-'))tab='dash';
+ const T={dash:['Dashboard','Your performance at a glance'],list:['Properties','Browse and sell Bountiful listings'],earn:['Earnings','Your commission ledger'],net:['My network','Grow your team and earn 1% on their sales'],agr:['Agreement','Your commission agreement'],prof:['Profile','Your account details'],set:['Settings','Appearance and app'],'a-ov':['Admin overview','Platform performance'],'a-cl':['Closings','Review and pay commissions'],'a-lst':['Manage listings','Post and edit properties'],'a-ppl':['Realtors','Everyone on the network']}[tab];
+ const body={dash:tDash,list:tList,earn:tEarn,net:tNet,agr:tAgr,prof:tProf,set:tSet,'a-ov':aOv,'a-cl':aCl,'a-lst':aLst,'a-ppl':aPpl}[tab]();
+ const li=(k,i,t)=>`<a class="${tab===k?'on':''}" onclick="nv('${k}')">${ic(i)}${t}${k==='a-cl'&&pendN()?`<span class="chip wr" style="margin-left:auto">${pendN()}</span>`:''}</a>`;
+ const bn=(k,i,t)=>`<a class="${tab===k?'on':''}" onclick="nv('${k}')">${ic(i)}${t}</a>`;
+ return `<div id="ov" class="ov" onclick="drawer(0)"></div><aside id="sb" class="sb"><div class="u"><div class="av" style="cursor:default">${esc(P.full_name[0].toUpperCase())}</div><div><b>${esc(P.full_name)}</b><div class="mut ts">${adm?'Administrator':'Realtor'} · ${esc(P.agreement_no)}</div></div></div><h4>Workspace</h4>${li('dash','home','Dashboard')}${li('list','building','Properties')}${li('earn','wallet','Earnings')}${li('net','users','My network')}${li('agr','file','Agreement')}${adm?`<h4>Administration</h4>${li('a-ov','chart','Overview')}${li('a-cl','dollar','Closings')}${li('a-lst','plus','Manage listings')}${li('a-ppl','users','Realtors')}`:''}<h4>Account</h4>${li('prof','user','Profile')}${li('set','gear','Settings')}<a onclick="out()">${ic('logout')}Sign out</a></aside>${top()}<main><div class="ph"><h2>${T[0]}</h2><div class="mut ts">${T[1]}</div></div>${body}</main><nav class="bn">${bn('dash','home','Home')}${bn('list','building','Listings')}${bn('earn','wallet','Earnings')}${bn('net','users','Network')}<a onclick="drawer(1)">${ic('menu')}Menu</a></nav>`}
+function ledRow(x){const ok=x.status==='confirmed'||x.status==='paid';return `<div class="row"><div><b>${esc(x.listing_title)}</b><div class="mut ts">${x.own?'Own sale · 6%':'Team sale · '+esc(x.realtor_name||'invitee')+' · 1%'} · ${fd(x.created)}</div></div><div style="text-align:right"><b>${ok?'+'+money(x.amt):'—'}</b><div>${st(x.status)}</div></div></div>`}
+function tDash(){const m=mine(),ok=m.filter(x=>x.status==='confirmed'||x.status==='paid'),earned=sum(ok,x=>x.amt),paid=sum(m.filter(x=>x.status==='paid'),x=>x.amt),pend=m.filter(x=>x.status==='pending').length;
+ return `<div class="kpis"><div class="kpi"><div class="ic">${ic('dollar')}</div><b>${money(earned)}</b><span>Total earned</span></div><div class="kpi"><div class="ic">${ic('check')}</div><b>${money(paid)}</b><span>Paid out</span></div><div class="kpi"><div class="ic">${ic('clock')}</div><b>${pend}</b><span>Pending closings</span></div><div class="kpi"><div class="ic">${ic('users')}</div><b>${N.length}</b><span>Team members</span></div></div>
+ ${adm?`<div class="card" style="display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap"><div><b>Admin console</b><div class="mut ts">${pendN()} closing${pendN()===1?'':'s'} waiting for review</div></div><div style="display:flex;gap:8px"><button class="btn ghost sm" onclick="nv('a-lst')">Post a property</button><button class="btn sm" onclick="nv('a-cl')">Review closings</button></div></div>`:''}
+ <div class="card"><h3>Your commission rates</h3>${SPLIT}<div class="mut ts">You earn 6% on your own sales and 1% when someone you invited sells. Bountiful Properties keeps 3%.</div></div>
+ <div class="card"><h3>Recent activity</h3>${m.length?m.slice(0,4).map(ledRow).join(''):'<div class="mut">No closings yet. Browse properties and submit a closing after a sale.</div>'}</div>
+ <div class="card"><h3>Invite and earn</h3><div class="link">${esc(lnk())}</div><button class="btn sm" style="margin-top:10px" onclick="cp()">${ic('copy')}Copy link</button></div>`}
+function tList(){return `<input id="qs" placeholder="Search by name or location" value="${esc(q)}" oninput="q=this.value;drawList()"><div class="chips">${['All','Available','Ongoing build','Land'].map(k=>`<button class="${kf===k?'on':''}" onclick="kf='${k}';render()">${k}</button>`).join('')}</div><div id="lg"></div>`}
+function drawList(){const x=L.filter(p=>(kf==='All'||p.kind===kf)&&(p.title+' '+p.location).toLowerCase().includes(q.toLowerCase()));const e=$('#lg');if(e)e.innerHTML=x.length?`<div class="grid">${x.map(p=>pcard(p,1)).join('')}</div>`:'<div class="card mut">No properties found.</div>'}
+function tEarn(){const m=mine();return `<div class="card">${m.length?m.map(ledRow).join(''):'<div class="mut">No closings yet. Submit one from Properties after a sale.</div>'}</div>`}
+function tNet(){return `<div class="card"><h3>Your referral link</h3><div class="link">${esc(lnk())}</div><button class="btn sm" style="margin:10px 0" onclick="cp()">${ic('copy')}Copy link</button><div class="mut ts">Your code: <b>${esc(P.referral_code)}</b>. Each time someone you invite sells a property, you earn 1% of the sale price.</div></div><div class="card"><h3>Your team (${N.length})</h3>${N.length?N.map(x=>`<div class="row"><b>${esc(x.full_name)}</b><span class="mut ts">${esc(x.country||'')}</span></div>`).join(''):'<div class="mut">Nobody has joined through your link yet.</div>'}<div class="row"><span class="mut">Your upline</span><b>${esc(P.upline_name||'Bountiful Properties')}</b></div></div>`}
+function tAgr(){return `<div class="card"><div class="row"><span class="mut">Agreement No.</span><b>${esc(P.agreement_no)}</b></div><div class="row"><span class="mut">Realtor</span><b>${esc(P.full_name)}</b></div><div class="row"><span class="mut">Upline</span><b>${esc(P.upline_name||'Bountiful Properties (direct)')}</b></div><div class="row"><span class="mut">Your rates</span><b>6% own · 1% team</b></div><div class="row"><span class="mut">Date</span><b>${fd(P.created)}</b></div><button class="btn w" style="margin-top:12px" onclick="pdf()">${ic('download')}Download agreement PDF</button></div>`}
+function tProf(){return `<div class="card"><div style="display:flex;gap:14px;align-items:center;margin-bottom:6px"><div class="av lg">${esc(P.full_name[0].toUpperCase())}</div><div><h3 style="margin:0">${esc(P.full_name)}</h3><div class="mut ts">${esc(P.email)}</div><div style="margin-top:6px"><span class="chip">${adm?'Administrator':'Realtor'}</span></div></div></div>${adm?`<div class="card" style="margin:12px 0 0;background:var(--soft);box-shadow:none"><b>Admin access</b><div class="mut ts" style="margin-bottom:10px">You have full backend access: post properties, review closings and pay commissions.</div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" onclick="nv('a-lst')">Post a property</button><button class="btn ghost sm" onclick="nv('a-cl')">Closings</button><button class="btn ghost sm" onclick="nv('a-ov')">Overview</button></div></div>`:''}</div>
+ <div class="card"><h3>Details</h3><label>Full name</label><input id="pn" value="${esc(P.full_name)}"><label>Country</label><input id="pc" value="${esc(P.country)}"><button class="btn" style="margin-top:14px" onclick="saveP()">Save changes</button></div>
+ <div class="card"><div class="row"><span class="mut">Realtor ID</span><b>${esc(P.agreement_no)}</b></div><div class="row"><span class="mut">Referral code</span><b>${esc(P.referral_code)}</b></div><div class="row"><span class="mut">Upline</span><b>${esc(P.upline_name||'Bountiful Properties')}</b></div><div class="row"><span class="mut">Joined</span><b>${fd(P.created)}</b></div></div>`}
+function tSet(){const inst=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+ return `<div class="card"><h3>Appearance</h3><select onchange="setT(this.value)">${['auto','light','dark'].map(v=>`<option value="${v}" ${getT()===v?'selected':''}>${v[0].toUpperCase()+v.slice(1)}</option>`).join('')}</select></div>
+ <div class="card"><h3>Install BPR</h3>${inst?'<div class="mut">BPR is installed on this device.</div>':dip?`<button class="btn" onclick="inst()">${ic('phone')}Install app</button>`:'<div class="mut ts">iPhone: tap Share, then Add to Home Screen.<br>Android: open the browser menu and tap Install app.</div>'}</div>
+ <div class="card"><h3>Account</h3><button class="btn ghost w" onclick="resetMe()">Send password reset email</button><button class="btn bad w" style="margin-top:10px" onclick="out()">${ic('logout')}Sign out</button></div>`}
+async function resetMe(){try{await au.sendPasswordResetEmail(P.email);toast('Password reset email sent')}catch(e){toast(e.message)}}
+async function inst(){if(dip){dip.prompt();await dip.userChoice;dip=null;render()}}
+async function saveP(){const n=$('#pn').value.trim(),c=$('#pc').value.trim();if(!n||!c)return toast('Name and country are required');try{await db.collection('profiles').doc(P.id).update({full_name:n,country:c})}catch(e){return toast(e.message)}await load();render();toast('Profile saved')}
 async function closing(id){const p=L.find(x=>x.id===id);if(!confirm('Submit a closing for '+p.title+'? Bountiful verifies it before commission is paid.'))return;
- try{await db.collection('sales').add({listing_id:id,listing_title:p.title,realtor_id:P.id,realtor_name:P.full_name,realtor_email:P.email,upline_id:P.upline_id||null,upline_name:P.upline_name||null,sale_price:p.price,status:'pending',created:Date.now()})}catch(e){return alert(e.message)}
- await load();tab='earn';render();scrollTo(0,0)}
-function render(){const a=$('#app');
- if(view==='home'){a.innerHTML=nav()+note()+`<div class="hero"><h1>Sell Bountiful homes.<br>Earn 6% at closing.</h1><p>Join our global network of realtors. Sell listed properties, ongoing builds and land, and build a team that pays you back.</p><button class="btn" onclick="go('join','up')">Become a realtor</button> <button class="btn" style="background:transparent;border:1.5px solid #fff;color:#fff" onclick="go('join','in')">Log in</button></div>
- <div class="card"><h3 style="margin:0 0 4px">How every closing is shared</h3><p class="mut" style="margin:0">Of each sale price, a 10% commission pool is paid out:</p><div class="split"><div class="s6">6% You</div><div class="s1">1%</div><div class="s3">3% Agency</div></div><div class="key"><span>🟦 6% to the realtor who sells</span><span>🔹 1% to their upline</span><span>⬛ 3% to the agency</span></div></div>
- <div class="card"><h3 style="margin:0 0 10px">Try the calculator</h3><label>Sale price (USD)</label><input id="cp" type="number" value="250000" oninput="calc()"><div id="cr"></div></div><h3 class="serif">Live inventory</h3>${grid(0)}`;calc()}
- if(view==='join')a.innerHTML=nav()+note()+`<div class="card"><h2 style="margin-top:0">${mode==='up'?'Join the network':'Welcome back'}</h2>${mode==='up'?`${ref?`<p class="mut">Invited with referral code <b>${esc(ref)}</b></p>`:''}<label>Full name</label><input id="n" autocomplete="name"><label>Country</label><input id="co"><label>Referral code (optional)</label><input id="rc" value="${esc(ref)}">`:''}<label>Email</label><input id="e" type="email" autocomplete="email"><label>Password</label><input id="pw" type="password" autocomplete="${mode==='up'?'new-password':'current-password'}"><p id="msg" style="font-size:14px;min-height:20px"></p><button class="btn" onclick="auth('${mode}')">${mode==='up'?'Create account':'Log in'}</button> <button class="btn alt" onclick="go('join','${mode==='up'?'in':'up'}')">${mode==='up'?'I have an account':'Create account'}</button> <button class="btn alt" onclick="go('home')">Back</button></div>`;
- if(view==='dash')dash()}
-function dash(){
- const my=S.filter(x=>x.realtor_id===P.id||x.upline_id===P.id).map(x=>({...x,own:x.realtor_id===P.id,amt:x.realtor_id===P.id?x.realtor_amt:x.upline_amt}));
- const ok=my.filter(x=>x.status==='confirmed'||x.status==='paid'),earned=ok.reduce((s,x)=>s+(+x.amt||0),0),paid=my.filter(x=>x.status==='paid').reduce((s,x)=>s+(+x.amt||0),0),pend=my.filter(x=>x.status==='pending').length;
- const link=location.origin+location.pathname+'?ref='+P.referral_code;let body='';
- if(tab==='list')body=grid(1);
- if(tab==='earn')body=`<div class="card"><h3 style="margin-top:0">Ledger</h3>${my.length?my.map(x=>`<div class="row"><span>${esc(x.listing_title)}<br><span class="mut">${x.own?'Own sale · 6%':'Team sale ('+esc(x.realtor_name||'invitee')+') · 1%'} · ${x.status}</span></span><b style="color:var(--gold)">${x.status==='pending'?'Pending':x.status==='rejected'?'Rejected':'+'+money(x.amt)}</b></div>`).join(''):'<p class="mut">No closings yet. Submit one from Listings after a sale.</p>'}</div>`;
- if(tab==='net')body=`<div class="card"><h3 style="margin-top:0">Your referral link</h3><div class="link">${esc(link)}</div><br><button class="btn sm" onclick="navigator.clipboard&&navigator.clipboard.writeText('${link}').then(()=>this.textContent='Copied ✓')">Copy link</button><p class="mut">Each time someone you invite sells a property, you earn 1% of the sale price. Your code: <b>${esc(P.referral_code)}</b></p></div><div class="card"><h3 style="margin-top:0">Your team (${N.length})</h3>${N.length?N.map(x=>`<div class="row"><span>${esc(x.full_name)}</span><span class="mut">${esc(x.country||'')}</span></div>`).join(''):'<p class="mut">Nobody has joined through your link yet.</p>'}<div class="row"><span>Your upline</span><b>${esc(P.upline_name||'Bountiful Properties')}</b></div></div>`;
- if(tab==='agr')body=`<div class="card"><h3 style="margin-top:0">Commission agreement</h3><div class="row"><span>Agreement No.</span><b>${esc(P.agreement_no)}</b></div><div class="row"><span>Realtor</span><b>${esc(P.full_name)}</b></div><div class="row"><span>Upline</span><b>${esc(P.upline_name||'Bountiful Properties (direct)')}</b></div><div class="row"><span>Your rates</span><b>6% own sales · 1% team sales</b></div><div class="row"><span>Date</span><b>${dt()}</b></div><br><button class="btn" onclick="pdf()">Download agreement PDF</button></div>`;
- if(tab==='prof')body=`<div class="card"><h3 style="margin-top:0">My profile</h3><label>Full name</label><input id="pn" value="${esc(P.full_name)}"><label>Email</label><input value="${esc(P.email)}" disabled><label>Country</label><input id="pc" value="${esc(P.country)}"><br><br><button class="btn" onclick="saveP()">Save changes</button></div>`;
- if(tab==='set')body=`<div class="card"><h3 style="margin-top:0">Settings</h3><label>Appearance</label><select onchange="setT(this.value)">${['auto','light','dark'].map(v=>`<option value="${v}" ${getT()===v?'selected':''}>${v[0].toUpperCase()+v.slice(1)}</option>`).join('')}</select><br><br><button class="btn alt" onclick="out()">Sign out</button></div>`;
- $('#app').innerHTML=nav()+`<h2 style="margin:0">Welcome, ${esc(P.full_name.split(' ')[0])}</h2><p class="mut nopr" style="margin:2px 0 12px">${esc(P.agreement_no)} · ${esc(P.country||'')}</p><div class="stats nopr"><div class="stat"><b>${money(earned)}</b><span>Earned</span></div><div class="stat"><b>${money(paid)}</b><span>Paid out</span></div><div class="stat"><b>${pend}</b><span>Pending</span></div></div><div class="tabs nopr">${[['list','Listings'],['earn','Earnings'],['net','Network'],['agr','Agreement']].map(t=>`<button class="${tab===t[0]?'on':''}" onclick="nv('${t[0]}')">${t[1]}</button>`).join('')}</div>${body}`}
-async function saveP(){const n=$('#pn').value.trim(),c=$('#pc').value.trim();if(!n||!c)return;try{await db.collection('profiles').doc(P.id).update({full_name:n,country:c})}catch(e){return alert(e.message)}await load();render()}
-function pdf(){const {jsPDF}=window.jspdf,d=new jsPDF({unit:'pt',format:'a4'});let y=110;
- d.setFillColor(3,105,161);d.rect(0,0,595,70,'F');d.setTextColor(255);d.setFont('times','bold');d.setFontSize(20);d.text('BOUNTIFUL PROPERTIES',50,43);d.setTextColor(20);
+ try{await db.collection('sales').add({listing_id:id,listing_title:p.title,realtor_id:P.id,realtor_name:P.full_name,realtor_email:P.email,upline_id:P.upline_id||null,upline_name:P.upline_name||null,sale_price:p.price,status:'pending',created:Date.now()})}catch(e){return toast(e.message)}
+ await load();tab='earn';render();scrollTo(0,0);toast('Closing submitted for review')}
+/* ---------- admin ---------- */
+function saleCard(x){const done=x.status==='confirmed'||x.status==='paid';
+ return `<div class="card"><div class="row" style="padding-top:0"><b>${esc(x.listing_title)}</b>${st(x.status)}</div><div class="mut ts">${esc(x.realtor_name)} · ${esc(x.realtor_email)}<br>Upline: ${esc(x.upline_name||'none')} · ${fd(x.created)}</div><div class="row"><span>Sale price</span><b>${money(x.sale_price)}</b></div>${done?`<div class="row"><span>Realtor 6%</span><b>${money(x.realtor_amt)}</b></div><div class="row"><span>Upline 1%</span><b>${money(x.upline_amt)}</b></div><div class="row"><span>Agency</span><b>${money(x.agency_amt)}</b></div>`:''}${x.status==='pending'?`<div style="display:flex;gap:8px;margin-top:8px"><button class="btn sm" onclick="act('${x.id}','confirmed')">Confirm closing</button><button class="btn bad sm" onclick="act('${x.id}','rejected')">Reject</button></div>`:''}${x.status==='confirmed'?`<button class="btn sm" style="margin-top:8px" onclick="act('${x.id}','paid')">Mark commissions paid</button>`:''}</div>`}
+function aOv(){const s=AD.sales,ok=s.filter(x=>x.status==='confirmed'||x.status==='paid'),owed=s.filter(x=>x.status==='confirmed'),pd=s.filter(x=>x.status==='paid'),pend=s.filter(x=>x.status==='pending');
+ const tr=sum(ok,x=>x.realtor_amt),tu=sum(ok,x=>x.upline_amt),ta=sum(ok,x=>x.agency_amt),tot=tr+tu+ta;
+ const bar=tot?`<div class="split"><div class="s6" style="flex:${tr||.001}">${Math.round(tr/tot*100)}%</div><div class="s1" style="flex:${tu||.001}"></div><div class="s3" style="flex:${ta||.001}">${Math.round(ta/tot*100)}%</div></div>`:'<div class="mut" style="margin:10px 0">No confirmed sales yet.</div>';
+ return `<div class="kpis"><div class="kpi"><div class="ic">${ic('users')}</div><b>${AD.people.length}</b><span>Realtors</span></div><div class="kpi"><div class="ic">${ic('clock')}</div><b>${pend.length}</b><span>Pending closings</span></div><div class="kpi"><div class="ic">${ic('chart')}</div><b>${money(sum(ok,x=>x.sale_price))}</b><span>Sales volume</span></div><div class="kpi"><div class="ic">${ic('building')}</div><b>${AD.listings.filter(x=>x.status==='active').length}</b><span>Active listings</span></div></div>
+ <div class="card"><h3>Commission distribution</h3>${bar}<div class="row"><span>Realtors (6%)</span><b>${money(tr)}</b></div><div class="row"><span>Uplines (1%)</span><b>${money(tu)}</b></div><div class="row"><span>Agency</span><b>${money(ta)}</b></div><div class="row"><span>Owed to realtors</span><b>${money(sum(owed,x=>+x.realtor_amt+ +x.upline_amt))}</b></div><div class="row"><span>Paid out</span><b>${money(sum(pd,x=>+x.realtor_amt+ +x.upline_amt))}</b></div></div>
+ <h3 style="margin:16px 0 10px">Waiting for review</h3>${pend.map(saleCard).join('')||'<div class="card mut">Nothing waiting.</div>'}`}
+function aCl(){const s=AD.sales.filter(x=>cf==='All'||x.status===cf.toLowerCase());
+ return `<div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><div class="chips" style="margin:0;padding:0 0 10px;flex:1">${['All','Pending','Confirmed','Paid','Rejected'].map(k=>`<button class="${cf===k?'on':''}" onclick="cf='${k}';render()">${k}</button>`).join('')}</div><button class="btn ghost sm" onclick="csv()" style="margin-bottom:10px">${ic('download')}CSV</button></div>${s.map(saleCard).join('')||'<div class="card mut">No closings in this view.</div>'}`}
+function aLst(){return `<div class="card"><h3>Post a property</h3><label>Title</label><input id="lt" placeholder="e.g. Palm Crest Terraces"><label>Location</label><input id="ll" placeholder="e.g. Lekki, Lagos"><label>Type</label><select id="lk"><option>Available</option><option>Ongoing build</option><option>Land</option></select><label>Price (USD)</label><input id="lp" type="number" inputmode="decimal"><label>Description</label><input id="ld" placeholder="e.g. 4-bed duplexes"><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><button class="btn" onclick="addL()">${ic('plus')}Post property</button>${AD.listings.length?'':'<button class="btn ghost" onclick="seed()">Load 6 sample listings</button>'}</div></div>
+ <h3 style="margin:16px 0 10px">All listings (${AD.listings.length})</h3>${AD.listings.map(p=>`<div class="card"><div class="row" style="padding-top:0"><b>${esc(p.title)}</b>${st(p.status==='active'?'confirmed':p.status==='sold'?'paid':'rejected').replace('confirmed','active').replace('paid','sold').replace('rejected','archived')}</div><div class="mut ts">${esc(p.location)} · ${esc(p.kind)} · ${money(p.price)}</div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><button class="btn ghost sm" onclick="priceL('${p.id}')">Edit price</button>${p.status!=='active'?`<button class="btn ghost sm" onclick="setL('${p.id}','active')">Activate</button>`:`<button class="btn ghost sm" onclick="setL('${p.id}','sold')">Mark sold</button>`}${p.status!=='archived'?`<button class="btn bad sm" onclick="setL('${p.id}','archived')">Archive</button>`:''}</div></div>`).join('')}`}
+function aPpl(){return `<div class="card">${AD.people.map(x=>`<div class="row"><div><b>${esc(x.full_name)}</b><div class="mut ts">${esc(x.email)} · ${esc(x.country||'')}<br>Code ${esc(x.referral_code)} · Upline: ${esc(x.upline_name||'none')}</div></div><span class="mut ts">${fd(x.created)}</span></div>`).join('')||'<div class="mut">No realtors yet.</div>'}</div>`}
+async function act(id,s){let u={status:s};
+ if(s==='confirmed'){const x=AD.sales.find(y=>y.id===id),v=prompt('Final sale price (USD)',x.sale_price);if(v===null)return;const p=+v;if(!(p>0))return toast('Enter a valid price');const up=!!x.upline_id;
+  u={status:'confirmed',sale_price:p,realtor_amt:r2(p*.06),upline_amt:up?r2(p*.01):0,agency_amt:r2(p*.03+(up?0:p*.01)),confirmed_at:Date.now()}}
+ else if(s==='paid'){if(!confirm('Mark these commissions as paid?'))return;u={status:'paid',paid_at:Date.now()}}
+ else if(!confirm('Reject this closing?'))return;
+ try{await db.collection('sales').doc(id).update(u)}catch(e){return toast(e.message)}await loadAD();render();toast('Closing '+s)}
+async function addL(){const r={title:$('#lt').value.trim(),location:$('#ll').value.trim(),kind:$('#lk').value,price:+$('#lp').value,description:$('#ld').value.trim(),status:'active',created:Date.now()};
+ if(!r.title||!r.location||!(r.price>0))return toast('Title, location and price are required');
+ try{await db.collection('listings').add(r)}catch(e){return toast(e.message)}await loadAD();await loadL();render();toast('Property posted')}
+async function seed(){const s=[['Palm Crest Terraces','Lekki, Lagos','Ongoing build','4-bed duplexes',185000],['Heritage Land Estate','Abuja, Nigeria','Land','600 sqm plots, C of O',42000],['Azure Bay Apartments','Accra, Ghana','Available','2-bed sea view',128000],['Golden Ridge Villas','Dubai, UAE','Ongoing build','5-bed gated villas',420000],['Savannah Gardens','Nairobi, Kenya','Available','3-bed townhouses',96000],['Kingsway Mews','London, UK','Available','Prime flats',560000]];
+ try{for(let i=0;i<s.length;i++)await db.collection('listings').add({title:s[i][0],location:s[i][1],kind:s[i][2],description:s[i][3],price:s[i][4],status:'active',created:Date.now()+i})}catch(e){return toast(e.message)}await loadAD();await loadL();render();toast('Sample listings added')}
+async function setL(id,s){try{await db.collection('listings').doc(id).update({status:s})}catch(e){return toast(e.message)}await loadAD();await loadL();render()}
+async function priceL(id){const v=+prompt('New price (USD)');if(!(v>0))return;try{await db.collection('listings').doc(id).update({price:v})}catch(e){return toast(e.message)}await loadAD();await loadL();render()}
+function csv(){const rows=[['Closing','Property','Realtor','Email','Upline','Sale price','Realtor 6%','Upline 1%','Agency','Status']].concat(AD.sales.map(x=>[x.id,x.listing_title,x.realtor_name,x.realtor_email,x.upline_name||'',x.sale_price,x.realtor_amt??'',x.upline_amt??'',x.agency_amt??'',x.status]));
+ const t=rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'text/csv'}));a.download='bpr-closings.csv';a.click()}
+/* ---------- PDF ---------- */
+function pdf(){const {jsPDF}=window.jspdf,d=new jsPDF({unit:'pt',format:'a4'});let y=120;
+ d.setFillColor(3,105,161);d.rect(0,0,595,84,'F');d.setFillColor(255,255,255);d.roundedRect(46,20,44,44,10,10,'F');
+ d.setDrawColor(3,105,161);d.setLineWidth(3);d.line(53,43,68,29);d.line(68,29,83,43);d.setFillColor(3,105,161);d.circle(68,42,2.6,'F');d.circle(60,54,2.6,'F');d.circle(76,54,2.6,'F');d.setLineWidth(1.4);d.line(68,42,60,54);d.line(68,42,76,54);d.line(60,54,76,54);
+ d.setTextColor(255);d.setFont('helvetica','bold');d.setFontSize(22);d.text('BPR',102,43);d.setFont('helvetica','normal');d.setFontSize(10);d.text('Bountiful Properties Realtors',102,58);d.setTextColor(20);
  const T=(t,s,b)=>{d.setFont('times',b?'bold':'normal');d.setFontSize(s);const l=d.splitTextToSize(t,495);d.text(l,50,y);y+=l.length*s*1.35+8};
- T('REALTOR COMMISSION AGREEMENT',16,1);T('Agreement No. '+P.agreement_no+'   |   Date: '+dt(),10);y+=6;
+ T('REALTOR COMMISSION AGREEMENT',16,1);T('Agreement No. '+P.agreement_no+'   |   Date: '+fd(P.created),10);y+=6;
  T('This agreement is made between Bountiful Properties (“the Agency”) and '+P.full_name+' of '+(P.country||'')+', '+P.email+' (“the Realtor”).',11);y+=4;
  T('Realtor: '+P.full_name+' (Code '+P.referral_code+')',11,1);T('Upline: '+(P.upline_name||'None (direct to Bountiful Properties)'),11,1);T('Agency: Bountiful Properties',11,1);y+=6;
  ['1. Scope. The Realtor may market and sell properties, ongoing developments and land listed or built by Bountiful Properties, in any country.',
@@ -145,9 +237,14 @@ function pdf(){const {jsPDF}=window.jspdf,d=new jsPDF({unit:'pt',format:'a4'});l
  '5. Conduct. The Realtor shall represent properties truthfully, quote only prices set by Bountiful Properties, and shall not receive client funds directly.',
  '6. Termination. Either party may end this agreement in writing. Commission on sales closed before termination remains payable.'].forEach(c=>T(c,11));
  y+=40;d.line(50,y,250,y);d.line(320,y,520,y);d.setFontSize(10);d.text('Realtor: '+P.full_name,50,y+14);d.text('For Bountiful Properties',320,y+14);
- d.save('Bountiful-Agreement-'+P.agreement_no+'.pdf')}
+ d.save('BPR-Agreement-'+P.agreement_no+'.pdf')}
+/* ---------- render ---------- */
+function render(){const a=$('#app');if(view==='app'&&!P)view='home';a.className=view==='app'?'in':'';
+ a.innerHTML=view==='home'?home():view==='join'?joinV():shell();
+ if(view==='home')calc();if(view==='app'&&tab==='list')drawList()}
 document.addEventListener('click',e=>{const m=$('#ddm');if(m&&!e.target.closest('.dd'))m.hidden=true});
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();dip=e;if(view==='app'&&tab==='set')render()});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 applyTheme(getT());
-if(SETUP){render()}else au.onAuthStateChanged(async u=>{if(busy)return;if(u){await load();if(P)view='dash'}else{P=null;await loadL()}if(ref&&!P&&view==='home'){view='join';mode='up'}render()});
-
+au.onAuthStateChanged(async u=>{if(busy)return;if(u){await load();if(P)view='app'}else{P=null;adm=false;await loadL()}if(ref&&!P&&view==='home'){view='join';mode='up'}render()});
 </script></body></html>
