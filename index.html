@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bountiful Properties · Realtor Network</title>
+<style>
+:root{--bg:#f2f9ff;--ink:#0b2540;--mut:#58708a;--card:#ffffff;--line:#d3e7f7;--gold:#0284c7;--grn:#0369a1;--on:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#071a2b;--ink:#eaf6ff;--mut:#8fb2cc;--card:#0d2740;--line:#1c3f5e;--gold:#38bdf8;--grn:#38bdf8;--on:#04121f}}
+:root[data-theme="dark"]{--bg:#071a2b;--ink:#eaf6ff;--mut:#8fb2cc;--card:#0d2740;--line:#1c3f5e;--gold:#38bdf8;--grn:#38bdf8;--on:#04121f}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3,.serif{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-.01em}
+.wrap{max-width:880px;margin:0 auto;padding:16px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:6px 0 14px}
+.logo{display:flex;gap:10px;align-items:center;font-family:Georgia,serif;font-weight:700}
+.logo i{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--gold),var(--grn));display:grid;place-items:center;color:#fff;font-style:normal}
+.hero{background:linear-gradient(160deg,#38bdf8,#0369a1);color:#fff;border-radius:22px;padding:28px 22px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:30px solid rgba(255,255,255,.22)}
+.hero h1{font-size:clamp(28px,7vw,44px);line-height:1.1;margin:0 0 10px}
+.hero .btn{background:#fff;color:#0369a1}
+.hero p{margin:0 0 18px;opacity:.9;max-width:520px}
+.btn{display:inline-block;border:0;cursor:pointer;background:var(--grn);color:var(--on);font:600 16px system-ui,sans-serif;padding:12px 20px;border-radius:12px}
+.btn.alt{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.btn.sm{padding:8px 12px;font-size:14px}
+.split{display:flex;height:46px;border-radius:12px;overflow:hidden;margin:16px 0 8px;font-weight:700;font-size:14px}
+.split div{display:grid;place-items:center;color:#fff}
+.s6{flex:6;background:#0369a1}.s1{flex:1;background:#38bdf8}.s3{flex:3;background:#1e3a5f}
+.key{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;opacity:.9}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.ph{height:110px;border-radius:12px;margin-bottom:10px;display:flex;align-items:flex-end;padding:10px;color:#fff;font-weight:600;font-size:13px}
+.tag{font-size:12px;padding:3px 9px;border-radius:99px;border:1px solid var(--line);color:var(--mut)}
+label{display:block;font-size:14px;color:var(--mut);margin:12px 0 4px}
+input,select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin:14px 0}
+.tabs button{white-space:nowrap;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:9px 14px;border-radius:99px;cursor:pointer;font:inherit}
+.tabs button.on{background:var(--grn);color:var(--on);border-color:var(--grn)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px}
+.stat b{display:block;font:700 20px Georgia,serif;color:var(--gold)}.stat span{font-size:12px;color:var(--mut)}
+.link{word-break:break-all;background:var(--bg);border:1px dashed var(--gold);padding:10px;border-radius:10px;font-size:14px}
+.row{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.mut{color:var(--mut);font-size:14px}
+#agreement{background:#fff;color:#111;border:1px solid #ccc;padding:28px;font-family:Georgia,serif;border-radius:6px;line-height:1.55}
+#agreement h2{text-align:center;margin:0 0 4px}#agreement table{width:100%;border-collapse:collapse;margin:10px 0}
+#agreement td{border:1px solid #999;padding:6px 10px}
+.ib{background:var(--card);border:1px solid var(--line);color:var(--ink);width:40px;height:40px;border-radius:10px;font-size:20px;cursor:pointer}
+.av{width:40px;height:40px;border-radius:50%;border:0;background:var(--grn);color:var(--on);font:700 16px Georgia,serif;cursor:pointer}.av.big{width:56px;height:56px;font-size:22px;cursor:default;margin-bottom:8px;display:grid;place-items:center}
+.dd{position:relative}.ddm{position:absolute;right:0;top:48px;background:var(--card);border:1px solid var(--line);border-radius:12px;min-width:180px;box-shadow:0 8px 24px rgba(3,105,161,.2);z-index:30;overflow:hidden}
+.ddm a,.sb a{display:block;padding:12px 16px;cursor:pointer}
+.ov{position:fixed;inset:0;background:rgba(3,40,70,.45);opacity:0;pointer-events:none;transition:.2s;z-index:40}.ov.open{opacity:1;pointer-events:auto}
+.sb{position:fixed;top:0;bottom:0;left:0;width:280px;max-width:84vw;background:var(--card);z-index:50;transform:translateX(-100%);transition:.25s;padding:calc(env(safe-area-inset-top,0px) + 20px) 8px 20px;overflow-y:auto}.sb.open{transform:none}
+.sb a.on{background:var(--bg);color:var(--grn);font-weight:600;border-radius:10px}
+.sbh{padding:0 12px 14px;margin-bottom:8px;border-bottom:1px solid var(--line);display:flex;flex-direction:column}
+@media print{.nopr,#app>*:not(#print-root){display:none!important}#print-root{display:block!important}#agreement{border:0;padding:0}.wrap{padding:0}}
+</style></head><body><div class="wrap" id="app"></div>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money=n=>'$'+Math.round(n).toLocaleString('en-US');
+const L=[
+{id:1,t:'Palm Crest Terraces',c:'Lekki, Lagos',k:'Ongoing build',p:185000,d:'4-bed duplexes',g:'#0284c7,#7dd3fc'},
+{id:2,t:'Heritage Land Estate',c:'Abuja, Nigeria',k:'Land',p:42000,d:'600 sqm plots, C of O',g:'#38bdf8,#0369a1'},
+{id:3,t:'Azure Bay Apartments',c:'Accra, Ghana',k:'Available',p:128000,d:'2-bed sea view',g:'#0ea5e9,#1e3a5f'},
+{id:4,t:'Golden Ridge Villas',c:'Dubai, UAE',k:'Ongoing build',p:420000,d:'5-bed gated villas',g:'#7dd3fc,#0284c7'},
+{id:5,t:'Savannah Gardens',c:'Nairobi, Kenya',k:'Available',p:96000,d:'3-bed townhouses',g:'#0369a1,#38bdf8'},
+{id:6,t:'Kingsway Mews',c:'London, UK',k:'Available',p:560000,d:'Prime flats',g:'#1e3a5f,#0ea5e9'}];
+let U=null,led=[],view='home',tab='list',ref=null,msg='';
+try{U=JSON.parse(localStorage.getItem('bp_user')||'null');led=JSON.parse(localStorage.getItem('bp_led')||'[]')}catch(e){}
+const h=location.hash.match(/^#ref-([A-Za-z0-9]+)$/);if(h)ref=h[1].toUpperCase();
+if(U)view='dash';
+const save=()=>{try{localStorage.setItem('bp_user',JSON.stringify(U));localStorage.setItem('bp_led',JSON.stringify(led))}catch(e){}};
+function split(price,down,hasUp){const me=down?0:price*.06,up=down?price*.01:(hasUp?price*.01:0),dn=down?price*.06:0,ag=price*.03+(!down&&!hasUp?price*.01:0);return{me,up,dn,ag,mine:down?up:me}}
+function nav(){return `<nav class="nopr">${U?'<button class="ib" onclick="drawer(1)" aria-label="Menu">☰</button>':''}<div class="logo"><i>B</i>Bountiful Properties</div>${U?`<div class="dd"><button class="av" onclick="dd()" aria-label="Account">${esc(U.name[0].toUpperCase())}</button><div id="ddm" class="ddm" hidden><a onclick="nv('prof')">👤 My profile</a><a onclick="nv('set')">⚙️ Settings</a><a onclick="out()">🚪 Sign out</a></div></div>`:'<span></span>'}</nav>${U?side():''}`}
+function side(){const m=[['list','🏠','Listings'],['earn','💰','Earnings'],['net','👥','My network'],['agr','📄','Agreement'],['prof','👤','Profile'],['set','⚙️','Settings']];
+return `<div id="ov" class="ov nopr" onclick="drawer(0)"></div><aside id="sb" class="sb nopr"><div class="sbh"><div class="av big">${esc(U.name[0].toUpperCase())}</div><b>${esc(U.name)}</b><span class="mut">${U.id}</span></div>${m.map(x=>`<a class="${tab===x[0]?'on':''}" onclick="nv('${x[0]}')">${x[1]} ${x[2]}</a>`).join('')}<a onclick="out()">🚪 Sign out</a></aside>`}
+function render(){
+ const a=$('#app');
+ if(view==='home')a.innerHTML=nav()+`<div class="hero"><h1>Sell Bountiful homes.<br>Earn 6% at closing.</h1><p>Join our global network of realtors. Sell listed properties, ongoing builds and land, and build a team that pays you back.</p><button class="btn" onclick="go('join')">Become a realtor</button></div>
+ <div class="card"><h3 style="margin:0 0 4px">How every closing is shared</h3><p class="mut" style="margin:0">Of each sale price, a 10% commission pool is paid out automatically:</p>
+ <div class="split"><div class="s6">6% You</div><div class="s1">1%</div><div class="s3">3% Agency</div></div>
+ <div class="key"><span>🟦 6% to the realtor who sells</span><span>🔹 1% to their upline</span><span>⬛ 3% to the agency</span></div></div>
+ <div class="card"><h3 style="margin:0 0 10px">Try the calculator</h3><label>Sale price (USD)</label><input id="cp" type="number" value="250000" oninput="calc()"><div id="cr"></div></div>
+ <h3 class="serif">Live inventory</h3><div class="grid">${L.map(card).join('')}</div>`,calc();
+ if(view==='join')a.innerHTML=nav()+`<div class="card"><h2 style="margin-top:0">Join the network</h2>${ref?`<p class="mut">Invited with referral code <b>${esc(ref)}</b></p>`:''}
+ <label>Full name</label><input id="n" autocomplete="name"><label>Email</label><input id="e" type="email"><label>Country</label><input id="co" placeholder="e.g. Nigeria">
+ <label>Referral code (optional)</label><input id="rc" value="${ref||''}"><label>Upline’s name (if referred)</label><input id="un" placeholder="Person who invited you">
+ <p style="color:#b3261e;font-size:14px">${msg}</p><button class="btn" onclick="join()">Create account &amp; agreement</button> <button class="btn alt" onclick="go('home')">Back</button></div>`;
+ if(view==='dash')dash();
+}
+function card(p){return `<div class="card" style="margin:0"><div class="ph" style="background:linear-gradient(135deg,${p.g.split(',')[0]},${p.g.split(',')[1]})">${esc(p.c)}</div><b class="serif">${p.t}</b><div class="mut">${p.d}</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px"><span class="tag">${p.k}</span><b>${money(p.p)}</b></div><div class="mut" style="margin-top:6px">You earn ${money(p.p*.06)}</div></div>`}
+function calc(){const p=+$('#cp').value||0,s=split(p,false,true);$('#cr').innerHTML=`<div class="row"><span>You (6%)</span><b>${money(p*.06)}</b></div><div class="row"><span>Your upline (1%)</span><b>${money(p*.01)}</b></div><div class="row"><span>Agency (3%)</span><b>${money(p*.03)}</b></div><div class="row"><span>You, if your invitee sells (1%)</span><b>${money(p*.01)}</b></div>`}
+function go(v){view=v;msg='';render();scrollTo(0,0)}
+function join(){const n=$('#n').value.trim(),e=$('#e').value.trim(),co=$('#co').value.trim(),rc=$('#rc').value.trim().toUpperCase(),un=$('#un').value.trim();
+ if(!n||!e||!co){msg='Please fill in your name, email and country.';return render2()}
+ if(rc&&!un){msg='Add your upline’s name so it appears on your agreement.';return render2()}
+ const code=(n.replace(/[^A-Za-z]/g,'').slice(0,4)||'BPR').toUpperCase()+Math.floor(1000+Math.random()*9000);
+ U={name:n,email:e,country:co,code,up:rc?{code:rc,name:un}:null,id:'BP-'+Date.now().toString(36).toUpperCase(),date:new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})};
+ led=[];save();view='dash';tab='agr';render();scrollTo(0,0)}
+function render2(){const a=['n','e','co','rc','un'].map(i=>$('#'+i).value);render();['n','e','co','rc','un'].forEach((i,k)=>$('#'+i).value=a[k])}
+function out(){U=null;led=[];try{localStorage.clear()}catch(e){}view='home';render()}
+function dash(){
+ const tot=led.reduce((s,x)=>s+x.mine,0),pend=led.length;
+ const link=location.href.split('#')[0]+'#ref-'+U.code;
+ let body='';
+ if(tab==='list')body=`<div class="grid">${L.map(card).join('')}</div>`;
+ if(tab==='earn')body=`<div class="card"><h3 style="margin-top:0">Record a closing</h3><label>Property</label><select id="lp">${L.map(p=>`<option value="${p.id}">${p.t} · ${money(p.p)}</option>`).join('')}</select><label>Who sold it?</label><select id="ls"><option value="own">I sold it (6%)</option><option value="down">Someone I invited sold it (1%)</option></select><br><br><button class="btn" onclick="close_()">Close sale</button><p class="mut">Demo: on the live platform, commissions post automatically when Bountiful confirms a closing.</p></div>
+ <div class="card"><h3 style="margin-top:0">Ledger</h3>${led.length?led.slice().reverse().map(x=>`<div class="row"><span>${esc(x.t)}<br><span class="mut">${x.kind} · ${x.date}</span></span><b style="color:var(--gold)">+${money(x.mine)}</b></div>`).join(''):'<p class="mut">No closings yet.</p>'}</div>`;
+ if(tab==='net')body=`<div class="card"><h3 style="margin-top:0">Your referral link</h3><div class="link">${esc(link)}</div><br><button class="btn sm" onclick="navigator.clipboard&&navigator.clipboard.writeText('${link}').then(()=>this.textContent='Copied ✓')">Copy link</button><p class="mut">Every time someone you invite sells a property, you earn 1% of the sale price. Your code: <b>${U.code}</b></p></div>
+ <div class="card"><h3 style="margin-top:0">Your chain</h3><div class="row"><span>Upline</span><b>${U.up?esc(U.up.name):'Bountiful Properties (direct)'}</b></div><div class="row"><span>You</span><b>${esc(U.name)}</b></div><div class="row"><span>Your invitees</span><b>Share your link to grow</b></div></div>`;
+ if(tab==='agr')body=agreement();
+ if(tab==='prof')body=profBody();
+ if(tab==='set')body=setBody();
+ $('#app').innerHTML=nav()+`<h2 style="margin:0">Welcome, ${esc(U.name.split(' ')[0])}</h2><p class="mut nopr" style="margin:2px 0 12px">Realtor ID ${U.id} · ${esc(U.country)}</p>
+ <div class="stats nopr"><div class="stat"><b>${money(tot)}</b><span>Earned</span></div><div class="stat"><b>${pend}</b><span>Closings</span></div><div class="stat"><b>6% + 1%</b><span>Your rates</span></div></div>
+ <div class="tabs nopr">${[['list','Listings'],['earn','Earnings'],['net','Network'],['agr','Agreement']].map(t=>`<button class="${tab===t[0]?'on':''}" onclick="tab='${t[0]}';render()">${t[1]}</button>`).join('')}</div>${body}`;
+}
+function close_(){const p=L.find(x=>x.id==$('#lp').value),d=$('#ls').value==='down',s=split(p.p,d,!!U.up);
+ led.push({t:p.t,mine:s.mine,kind:d?'Downline sale · 1%':'Own sale · 6%',date:new Date().toLocaleDateString('en-GB')});save();render()}
+function agreement(){const up=U.up?esc(U.up.name)+' (code '+esc(U.up.code)+')':'None (direct to Bountiful Properties)';
+ return `<div class="card nopr"><p style="margin:0 0 10px">Your signed agreement is ready. Tap below, then choose <b>Save as PDF</b> in the print dialog.</p><button class="btn" onclick="window.print()">Download agreement PDF</button></div>
+ <div id="print-root"><div id="agreement"><h2>REALTOR COMMISSION AGREEMENT</h2><div style="text-align:center;font-size:13px">Bountiful Properties · Agreement No. ${U.id}</div>
+ <p>This agreement is made on <b>${U.date}</b> between <b>Bountiful Properties</b> (“the Agency”) and <b>${esc(U.name)}</b> of ${esc(U.country)}, ${esc(U.email)} (“the Realtor”).</p>
+ <table><tr><td>Realtor</td><td>${esc(U.name)} (Code ${U.code})</td></tr><tr><td>Upline</td><td>${up}</td></tr><tr><td>Agency</td><td>Bountiful Properties</td></tr></table>
+ <p><b>1. Scope.</b> The Realtor may market and sell properties, ongoing developments and land listed or built by Bountiful Properties, in any country.</p>
+ <p><b>2. Commission.</b> On each closed sale, a commission pool of 10% of the sale price is shared as follows:</p>
+ <table><tr><td>Selling Realtor</td><td>6% of sale price</td></tr><tr><td>Upline of the selling Realtor</td><td>1% of sale price</td></tr><tr><td>Bountiful Properties (Agency)</td><td>3% of sale price</td></tr></table>
+ <p><b>3. Referrals.</b> The Realtor may invite others through a personal referral link. When an invited Realtor closes a sale, the Realtor earns 1% of that sale price, subject to the invitee’s agreement. Where a Realtor has no upline, the 1% upline share is retained by the Agency.</p>
+ <p><b>4. Payment.</b> Commission is earned upon closing, meaning full payment received and title or allocation confirmed by Bountiful Properties, and is payable after confirmation.</p>
+ <p><b>5. Conduct.</b> The Realtor shall represent properties truthfully, quote only prices set by Bountiful Properties, and receive no client funds directly.</p>
+ <p><b>6. Termination.</b> Either party may end this agreement in writing. Commission on sales closed before termination remains payable.</p>
+ <table style="margin-top:26px"><tr><td style="height:60px;vertical-align:bottom">Realtor: ${esc(U.name)}<br>Date: ${U.date}</td><td style="vertical-align:bottom">For Bountiful Properties<br>Authorised signatory</td></tr></table></div></div>`}
+function nv(t){tab=t;view='dash';render();scrollTo(0,0)}
+function drawer(o){$('#sb').classList.toggle('open',!!o);$('#ov').classList.toggle('open',!!o)}
+function dd(){const m=$('#ddm');m.hidden=!m.hidden}
+function applyTheme(t){const r=document.documentElement;if(!t||t==='auto')r.removeAttribute('data-theme');else r.setAttribute('data-theme',t)}
+function setS(k,v){U.set=U.set||{};U.set[k]=v;if(k==='theme')applyTheme(v);save()}
+function saveP(){const n=$('#pn').value.trim(),e=$('#pe').value.trim(),c=$('#pc').value.trim();if(!n||!e||!c)return;U.name=n;U.email=e;U.country=c;save();render()}
+function profBody(){return `<div class="card"><h3 style="margin-top:0">My profile</h3><label>Full name</label><input id="pn" value="${esc(U.name)}"><label>Email</label><input id="pe" value="${esc(U.email)}"><label>Country</label><input id="pc" value="${esc(U.country)}"><br><br><button class="btn" onclick="saveP()">Save changes</button></div><div class="card"><div class="row"><span>Realtor ID</span><b>${U.id}</b></div><div class="row"><span>Referral code</span><b>${U.code}</b></div><div class="row"><span>Upline</span><b>${U.up?esc(U.up.name):'Bountiful Properties'}</b></div><div class="row"><span>Joined</span><b>${U.date}</b></div></div>`}
+function setBody(){const S=U.set||{};return `<div class="card"><h3 style="margin-top:0">Settings</h3><label>Appearance</label><select onchange="setS('theme',this.value)">${['auto','light','dark'].map(v=>`<option value="${v}" ${(S.theme||'auto')===v?'selected':''}>${v[0].toUpperCase()+v.slice(1)}</option>`).join('')}</select><label>Payout method</label><select onchange="setS('pay',this.value)">${['Bank transfer','Mobile money','Crypto wallet'].map(v=>`<option ${(S.pay||'Bank transfer')===v?'selected':''}>${v}</option>`).join('')}</select><label><input type="checkbox" style="width:auto" ${S.notif===false?'':'checked'} onchange="setS('notif',this.checked)"> Email me when a closing posts</label></div><div class="card"><button class="btn alt" onclick="if(confirm('Clear all your data on this device?'))out()">Delete account &amp; data</button></div>`}
+document.addEventListener('click',e=>{const m=$('#ddm');if(m&&!e.target.closest('.dd'))m.hidden=true});
+applyTheme(U&&U.set?U.set.theme:'auto');
+render();
+</script></body></html>
