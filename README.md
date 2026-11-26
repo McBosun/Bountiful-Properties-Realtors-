@@ -1,46 +1,40 @@
 # Bountiful Properties Realtor Network
 
-A broker platform where realtors around the world sell properties, ongoing builds and land by **Bountiful Properties**, earn commission automatically at closing, and build a referral team.
+A broker platform where realtors around the world sell properties, ongoing builds and land by **Bountiful Properties**, earn commission at closing, and build a referral team.
+
+Backend: **Firebase** (Authentication + Firestore) on the free Spark plan. No card needed, and no server to run.
 
 ## Commission model
 
-Each closed sale pays a 10% commission pool, split as follows.
+Each confirmed sale pays a 10% pool: **6%** to the selling realtor, **1%** to their upline, **3%** to the agency. With no upline, the agency keeps the 1%. `firestore.rules` rejects any confirmation whose amounts do not match these rates.
 
-| Who | Share of sale price |
+## Files
+
+| File | Purpose |
 |---|---|
-| Realtor who sells | 6% |
-| Their upline (who invited them) | 1% |
-| Bountiful Properties (agency) | 3% |
+| `index.html` | Realtor app: signup/login, referral link, listings, submit closings, earnings, team, profile, **PDF agreement download** |
+| `admin.html` | Admin dashboard: stats, confirm/reject closings, mark paid, manage listings, realtors list, CSV export |
+| `firestore.rules` | Security rules for the database |
+| `.github/workflows/pages.yml` | Publishes the site to GitHub Pages |
 
-A realtor earns 7% in total when they sell and also have an upline. If a realtor has no upline, the 1% goes to the agency.
+## Setup (about 10 minutes)
 
-## Features
+1. Go to https://console.firebase.google.com and **Add project** (stay on the free Spark plan).
+2. **Build > Authentication > Get started**, then enable **Email/Password**.
+3. **Build > Firestore Database > Create database** (production mode, any region). Open the **Rules** tab, paste the contents of `firestore.rules`, and **Publish**.
+4. **Project settings (gear) > Your apps > Web (`</>`)**, register an app, and copy the config values.
+5. Paste them into the `FB` block at the top of the script in **both** `index.html` and `admin.html`.
+6. Push to GitHub, set **Settings > Pages > Source** to **GitHub Actions**. Then add `YOURNAME.github.io` under Firebase **Authentication > Settings > Authorized domains**.
+7. Open the site, sign up, then copy your **User UID** from Firebase **Authentication > Users**.
+8. In Firestore, **Start collection** named `admins`, with **Document ID = your UID** and any field (for example `role` = `admin`). Now `admin.html` will let you in.
+9. In `admin.html > Listings`, tap **Load 6 sample listings** or add your own.
 
-- Landing page with a live commission calculator
-- Realtor signup with referral code and upline name
-- Personal referral link (`#ref-CODE`)
-- Dashboard with listings, earnings ledger and network
-- Auto-generated commission agreement (name, upline, Bountiful Properties), saved as PDF from the print dialog
-- Sidebar and account dropdown with profile and settings
-- Sky blue and white theme with automatic dark mode
+## How a sale flows
 
-## Run locally
+1. A realtor submits a closing on a listing (`pending`).
+2. An admin confirms it in `admin.html` (the final price can be adjusted) and the 6/1/3 amounts are recorded.
+3. After paying out, the admin marks it `paid`.
 
-Open `index.html` in a browser, or run `python3 -m http.server` and visit http://localhost:8000.
+## Free plan limits
 
-## Deploy with GitHub Pages
-
-1. Push this repo to GitHub on the `main` branch.
-2. Go to **Settings > Pages** and set **Source** to **GitHub Actions**.
-3. The workflow in `.github/workflows/pages.yml` publishes the site on every push.
-
-## Structure
-
-```
-index.html            (the whole app: HTML, CSS and JavaScript in one file)
-.github/workflows/pages.yml
-```
-
-## Status
-
-Front-end prototype. Data is kept in the browser's `localStorage`. Next steps: a real backend (database, login, upline lookup, automatic payouts) and server-side PDF generation.
+Spark allows roughly 50,000 reads and 20,000 writes per day, plenty for a launch. Heavy use needs the paid Blaze plan.

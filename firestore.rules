@@ -1,0 +1,64 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isAdmin() { return signedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid)); }
+    function d() { return request.resource.data; }
+    function onlyChanges(keys) { return request.resource.data.diff(resource.data).affectedKeys().hasOnly(keys); }
+
+    // Admins are added by hand in the Firebase console (document ID = the person's UID).
+    match /admins/{id} {
+      allow read: if signedIn() && request.auth.uid == id;
+      allow write: if false;
+    }
+
+    // Referral code -> owner lookup. Single reads only, no listing.
+    match /codes/{code} {
+      allow get: if true;
+      allow create: if signedIn() && d().uid == request.auth.uid && d().keys().hasOnly(['uid', 'name']);
+      allow update, delete: if false;
+    }
+
+    match /profiles/{uid} {
+      allow get, list: if signedIn() && (request.auth.uid == uid || resource.data.upline_id == request.auth.uid || isAdmin());
+      allow create: if signedIn() && request.auth.uid == uid
+        && d().keys().hasOnly(['full_name','email','country','referral_code','agreement_no','upline_id','upline_name','created'])
+        && d().email.lower() == request.auth.token.email.lower()
+        && get(/databases/$(database)/documents/codes/$(d().referral_code)).data.uid == uid
+        && (d().upline_id == null || (d().upline_id != uid
+            && get(/databases/$(database)/documents/profiles/$(d().upline_id)).data.full_name == d().upline_name));
+      allow update: if signedIn() && request.auth.uid == uid && onlyChanges(['full_name','country']);
+      allow delete: if false;
+    }
+
+    match /listings/{id} {
+      allow read: if resource.data.status == 'active' || isAdmin();
+      allow create, update: if isAdmin() && d().price is number && d().price > 0;
+      allow delete: if isAdmin();
+    }
+
+    // Commission rules: 6% realtor, 1% upline, 3% agency (agency keeps the 1% when there is no upline).
+    match /sales/{id} {
+      function okAmounts() {
+        let p = d().sale_price;
+        let hasUp = resource.data.upline_id != null;
+        return p is number && p > 0
+          && math.abs(d().realtor_amt - p * 0.06) < 0.02
+          && math.abs(d().upline_amt - (hasUp ? p * 0.01 : 0)) < 0.02
+          && math.abs(d().agency_amt - (p * 0.03 + (hasUp ? 0 : p * 0.01))) < 0.02;
+      }
+      allow read: if signedIn() && (resource.data.realtor_id == request.auth.uid || resource.data.upline_id == request.auth.uid || isAdmin());
+      allow create: if signedIn() && d().realtor_id == request.auth.uid && d().status == 'pending'
+        && d().keys().hasOnly(['listing_id','listing_title','realtor_id','realtor_name','realtor_email','upline_id','upline_name','sale_price','status','created'])
+        && get(/databases/$(database)/documents/listings/$(d().listing_id)).data.status == 'active'
+        && d().sale_price == get(/databases/$(database)/documents/listings/$(d().listing_id)).data.price
+        && d().upline_id == get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.upline_id;
+      allow update: if isAdmin() && (
+        (resource.data.status == 'pending' && d().status == 'confirmed'
+          && onlyChanges(['status','sale_price','realtor_amt','upline_amt','agency_amt','confirmed_at']) && okAmounts())
+        || (resource.data.status == 'pending' && d().status == 'rejected' && onlyChanges(['status']))
+        || (resource.data.status == 'confirmed' && d().status == 'paid' && onlyChanges(['status','paid_at'])));
+      allow delete: if false;
+    }
+  }
+}
